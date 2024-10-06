@@ -11,11 +11,16 @@ Templates for common files/configs in [Go](https://go.dev/) projects.
 
   *OR*
 
-- With [GitHub's CLI](https://github.com/cli/cli), run `gh repo create
-  NEW_REPOSITORY_NAME --template=dmarcoux/go_templates`.
+- With [GitHub's CLI](https://github.com/cli/cli), run:
 
-2. Search for `CHANGEME` in the newly created repository to adapt it to your
-   needs.
+  ```bash
+  gh repo create NEW_REPOSITORY_NAME --template=dmarcoux/go_templates --clone --private/--public
+  ```
+
+2. Search for `CHANGEME` in the newly created repository to adapt it to the
+   project's needs.
+
+3. Adapt this README to the project. This complete section can be deleted...
 
 ## nix-shell for Go
 
@@ -23,8 +28,8 @@ Reproducible development environment for Go projects which relies on
 [Nix](https://github.com/NixOS/nix), a purely functional and cross-platform
 package manager.
 
-### Usage
+**Start development environment:**
 
-1. Copy [shell.nix](./shell.nix) at the root of your Go project.
-2. Add the content of [.gitignore](./.gitignore) to your own _.gitignore_.
-3. Start with `nix-shell --pure`.
+```bash
+nix-shell --pure
+```
