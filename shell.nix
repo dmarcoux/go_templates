@@ -1,14 +1,14 @@
 # To ensure this nix-shell is reproducible, we pin the packages index to a commit SHA taken from a channel on https://status.nixos.org/
-# This commit is from nixpkgs-unstable, it's somewhere between NixOS 23.05 and the following version
-with (import (fetchTarball https://github.com/NixOS/nixpkgs/archive/5b528f99f73c4fad127118a8c1126b5e003b01a9.tar.gz) {});
+# This commit is from nixpkgs-unstable, it's somewhere between NixOS 24.05 and the following version
+with (import (fetchTarball https://github.com/NixOS/nixpkgs/archive/50b3bd3fed0442bcbf7f58355e990da84af1749d.tar.gz) {});
 
 mkShell {
   buildInputs = [
-    go_1_20
+    go_1_23
     # Various tools and packages mostly for static analysis of Go programs - https://go.googlesource.com/tools
     gotools
-    # Task runner / build tool that aims to be simpler and easier to use than GNU Make - https://taskfile.dev/
-    go-task
+    # Command runner - https://github.com/casey/just
+    just
     # Debugger for Go
     delve
     # Linters for Go - https://golangci-lint.run/
